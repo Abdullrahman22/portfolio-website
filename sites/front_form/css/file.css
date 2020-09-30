@@ -1,0 +1,124 @@
+body{
+    font-family: 'Oxygen', sans-serif;
+    font-weight: 700;
+    overflow-x: hidden;
+    background-color: #d1d1d1
+}
+.form-box{
+    margin-top: 30px;
+    overflow: hidden;
+    border: 4px solid #585858 ;
+    border-radius: 4px;
+    background-color: rgb(243, 243, 243);
+    padding: 50px;
+    padding-bottom: 20px
+
+}
+.form-box > h3{
+    font-size: 45px;
+    text-align: center;
+    padding-bottom: 40px
+}
+.input-box {
+    border-left: 2px solid #a0a0a0;
+    padding-left: 40px;
+}
+
+.input-box > p{
+    padding-top: 20px 
+}
+.input-box > div {
+    position: relative;
+    overflow: hidden;
+
+}
+.input-box > div input {
+    float: left;
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+    outline: none;
+    border: 1px solid rgb(138, 138, 138);
+    background-color: transparent;
+    height: 35px;
+    padding: 5px;
+    border-radius: 2px;
+    font-family: 'Oxygen', sans-serif;
+    font-weight: bolder
+}
+.fa-times-circle {
+    float: right;
+    width: 10%;
+    margin-top: 30px;
+    padding-left: 5px;
+    color: red;
+}
+.fa-check-circle {
+    float: right;
+    width: 10%;
+    margin-top: 30px;
+    padding-left: 5px;
+    color: rgb(43, 255, 0);
+}
+.input-box button{
+    padding: 10px 20px;
+    background-color: #bd2e00;
+    outline: none;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.social-box{
+    position: relative;
+    color: #fff;
+    width: 185px;
+    height: 58px;
+    margin: 10px ;
+    margin-left: 0px;
+    line-height: 55px;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+}
+.social-box .icon{
+    float: left;
+    width: 30%;
+    padding: 15px;
+    font-size: 28px;
+    border-right: 2px solid #d1d1d1
+}
+.social-box .text p{
+    width: 70%;
+    float: right;
+    padding-left: 10px
+
+}
+
+.face-box{
+    background-color: #4677d1;
+}
+.face-box:hover{
+    background-color: #6b8ecf;
+}
+.twitter-box{
+    background-color: #4db6ea;
+}
+.twitter-box:hover{
+    background-color: #84caec;
+}
+
+/*==========================================
+    |   |   |   |   | responsive
+==========================================*/
+@media(max-width: 767px){
+    .input-box{
+        border:none;
+        padding-left: 0px
+    }
+}
