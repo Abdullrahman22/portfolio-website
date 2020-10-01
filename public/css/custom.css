@@ -1,0 +1,784 @@
+body{
+    font-family: 'Kanit', 'El Messiri', sans-serif !important;
+    background-color: rgba(52, 198, 211, 0.03) !important;
+}
+body::-webkit-scrollbar {
+    background-color:#6c757d36;
+    width: 7px;
+    right: -10px
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #6198bf;
+    border-radius:8px;
+    right: -10px
+}
+/* ====================================================================
+|   |   |   |   |   |   |   global properties
+
+            Main color ==>  #a1b0be
+===================================================================== */
+.content-box{
+    padding: 60px 0px;
+}
+.content-title-underline {
+    width: 30px;
+    height: 3px;
+    background-color:  #6198bf !important;
+    margin: 0 auto;
+    margin-bottom: 40px;
+}
+.table-container{
+    width: 90%;
+    margin: 0px auto;
+}
+/* ====================================================================
+|   |   |   |   |   |   |   navbar
+===================================================================== */
+.navbar{
+    transition:  all 0.3s ease-in-out;
+    width: 100%;
+    position: fixed;
+}
+.navbar .fa-bars{
+    font-size: 24px;
+}
+.navbar a {
+    transition:  all 0.3s ease-in-out;
+    color: #000;
+}
+
+.nav-item{
+    padding-left: 15px;
+}
+.transparent-bg{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: transparent
+}
+.navbar.transparent-bg a:hover {
+    text-decoration: none;
+    color: #6198bf ;
+}
+.black-bg{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #6198bfe8;
+}
+.black-bg a{
+    color: #fff
+}
+.black-bg .fa-bars{
+    color: #fff;
+    font-size: 24px;
+}
+.navbar.black-bg a:hover {
+    text-decoration: none;
+    color: #00000077 ;
+}
+.black-bars-bg{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #6198bfe8 !important;
+}
+.black-bars-bg a{
+    color: #fff
+}
+.navbar.black-bars-bg a:hover {
+    text-decoration: none;
+    color: #00000077 ;
+}
+.black-bars-bg .fa-bars{
+    color: #fff;
+    font-size: 24px;
+}
+
+/* ====================================================================
+|   |   |   |   |   |   |   Home
+===================================================================== */
+#home{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url("../images/img/home_bg.jpg") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#home .my-info{
+    margin-top: 10rem;
+}
+#home .my-info p:nth-of-type(1){
+    font-size: 20px;
+    margin-top: 0 !important;
+    margin-bottom: -0.5rem !important;
+}
+#home .my-info p:nth-of-type(2){
+    font-size: 40px;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+#home .my-info p:nth-of-type(3){
+    font-size: 25px;
+}
+#home .overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+#home .go-down{
+    position: absolute;
+    right: 50%;
+    bottom: 30px;
+    animation: going_down 1s ease-in-out infinite ;
+}
+#home .go-down i {
+    transition: all 0.3s ease-in-out;
+    color: #5a8fc0 ;
+    font-size: 30px ;
+    cursor: pointer;
+}
+@keyframes going_down{
+    0%{
+        bottom: 30px;
+    }
+    50%{
+        bottom: 50px;
+    }
+    100%{
+        bottom: 30px;
+    }
+}
+@media(max-width: 991px){
+    #home{
+        height: 90vh;
+    }
+}
+@media (max-width:767px){
+
+    #home{
+        height: 60vh;
+
+    }
+    #home .my-info p:nth-of-type(1){
+        font-size: 16px;
+    }
+    #home .my-info p:nth-of-type(2){
+        font-size: 30px;
+    }
+    #home .my-info p:nth-of-type(3){
+        font-size: 20px;
+    }
+    #home .go-down i {
+        font-size: 25px ;
+    }
+    #home .go-down{
+        bottom: 10px !important;
+        animation: going_down 1s ease-in-out infinite ;
+    }
+    @keyframes going_down{
+        0%{
+            bottom: 10px;
+        }
+        50%{
+            bottom: 20px;
+        }
+        100%{
+            bottom: 10px;
+        }
+    }
+
+}
+@media  (max-width:575px) {
+    #Home{
+        background-image: url("../images/img/home_bg_1.jpg") !important;
+    }
+    #home .my-info p:nth-of-type(1){
+        font-size: 15px;
+    }
+    #home .my-info p:nth-of-type(2){
+        font-size: 24px;
+    }
+    #home .my-info p:nth-of-type(3){
+        font-size: 18px;
+    }
+
+}
+/* ====================================================================
+|   |   |   |   |   |   |   works
+===================================================================== */
+#works{
+    padding: 60px 0px;
+}
+#works .title{
+    font-size: 30px;
+}
+#works .title i{
+    color: #6198bf;
+ 
+}
+#works .work-box {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 3px;
+    height: 280px;
+    max-width: 320px;
+    cursor: pointer;
+    border: 2px dashed #6198bf;
+    transition:  all 0.2s ease-in-out;
+}
+#works .work-box:hover{
+    border: 2px solid transparent;
+}
+#works .work-box:hover .content-img{
+    transform: scale(1.2);
+
+}
+#works .work-box .content-img{
+    height: 280px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: all 0.2s ease-in-out;
+}
+
+#works .work-box .overlay{
+    position: absolute;
+    max-width: 100%;
+    height: 100%;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+}
+#works .work-box .overlay div.custom-border{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    bottom: 15%;
+    left: 15%;
+    right: 15%;
+    border: 5px solid #6198bf;
+}
+#works .work-box .overlay div.project-info{
+    position: absolute;
+    width: 100%;
+    top: calc( 50% - 30px);
+    color: #fff;
+}
+#works .work-box .overlay div.project-info .name{
+    color: #6198bf;
+  
+}
+#works .work-box .overlay div.project-info a{
+    color: #fff;
+    text-decoration: underline;
+}
+#works .work-box .overlay div.project-info a:hover{
+    text-decoration: underline;  
+}
+/* ====================================================================
+|   |   |   |   |   |   |   about
+===================================================================== */
+#about{
+    padding-top: 30px; 
+    padding-bottom: 60px; 
+    background-color: #000;
+    color: #fff;
+}
+#about .title{
+    font-size: 30px;
+}
+#about .title i{
+    color: #6198bf;
+ 
+}
+#about .about-inner{
+    padding: 60px 0px;
+    background-color: #111;
+    border-radius: 5px;
+    color: #fff;
+}
+#about .about-inner img{
+    padding: 20px 20px;
+    border-radius: 30px;
+}
+#about .about-inner .info{
+    padding: 20px 20px;
+    padding-top: 0px;  
+}
+#about .about-inner .info p:nth-of-type(1){
+    font-size: 35px;
+    color: #6198bf ;
+}
+#about .about-inner .info p:nth-of-type(3){
+    color: #a0a0a0 ;
+    font-weight: lighter;
+}
+/* ====================================================================
+|   |   |   |   |   |   |   contact
+===================================================================== */
+#contact{
+    padding: 60px 0px;
+}
+#contact .title{
+    font-size: 30px;
+}
+#contact .title i{
+    color: #6198bf;
+ 
+}
+#contact .details .phone h5 i {
+    color: #6198bf;
+    font-size: 20px;
+    padding-bottom: 5px;
+}
+@media  (max-width:575px) {
+    #contact .details p{
+        font-size: 15px;
+    }
+}
+#contact form .custom-input{
+    margin: 10px 0px;
+    display: block;
+    width: 100%;
+    padding: 7px 15px;
+    border:  2px solid #6198bf;
+    background-color: transparent;
+    border-radius: 25px;
+    outline: none;
+}
+#contact form .custom-input:hover{
+    border-bottom: 2px solid #6198bf;
+    outline: none;
+}
+#contact form  .form-group:nth-of-type(1),
+#contact form  .form-group:nth-of-type(2){
+    display: inline-block;
+    width: 48%;
+}
+#contact form  .form-group:nth-of-type(1){
+    float: left;
+}
+#contact form  .form-group:nth-of-type(2){
+    float: right;
+}
+#contact form button{
+    padding: 12px 20px;
+    background-color: transparent;
+    border: 2px solid #6198bf;
+    transition: all 0.3s ease-in-out;
+    margin-top: 20px;
+    color: #6198bf;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+}
+#contact form button:hover{
+    background-color: #6198bf;
+    color: #fff;
+}
+#contact form .error-messege{
+    color: red !important;
+    font-size: 15px !important;
+    padding-left: 10px;
+    text-align: left;
+    margin-top: -10px;
+}
+#contact .popup-messege{
+    height: 40px;
+    width: 100% !important;
+    color: #fff;
+    line-height: 40px;
+    font-size: 15px;
+    border-radius: 25px;
+    margin: 0px auto;
+    animation: hide-popup 1s ease-in-out forwards; 
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+}
+@keyframes hide-popup {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+#contact .popup-messege i{
+    color: #fff !important;
+}
+#contact .messege-success{
+    width: 80%;
+    background-color: #6198bf;
+}
+#contact .messege-failed{
+    width: 80%;
+    background-color: #b22525;
+}
+/* ====================================================================
+|   |   |   |   |   |   |   footer
+===================================================================== */
+#footer{
+    background-color: #6198bf36;
+    padding-top: 60px ;
+}
+.footer-inner{
+    padding: 60px 0px;
+    background-color: #111;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    color: #fff;
+}
+.footer-inner .scroll-top{
+    background-color: #6198bf;
+    height: 80px;
+    width: 50px;
+    margin: 0px auto;
+    margin-top: -90px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.footer-inner .scroll-top i {
+    font-size: 35px;
+    padding-top: 20px;
+    transition: all 0.3s ease-in-out;
+}
+.footer-inner .scroll-top:hover i{
+    padding-top: 10px;
+}
+.footer-inner .social-media{
+    padding: 20px 0px; 
+}
+.footer-inner .social-media a{
+    font-size: 24px;
+    color: #6198bf;
+    cursor: pointer;
+    margin: 0px 7px;
+    transition: all 0.3s ease-in-out;
+}
+.footer-inner .social-media a:hover{
+    color: #6198bf75;
+    text-decoration: none;
+}
+.footer-inner .copyright{
+    font-size: 14px;
+}
+@media (max-width:767px){
+
+    .footer-inner {
+        padding: 30px 0px;
+    }
+    .footer-inner .scroll-top{
+        background-color: #6198bf;
+        height: 60px;
+        width: 35px;
+        margin: 0px auto;
+        margin-top: -60px;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .footer-inner .scroll-top i {
+        font-size: 25px;
+        padding-top: 10px;
+    }
+
+}
+/* ====================================================================
+|   |   |   |   |   |   |   admin-login
+===================================================================== */
+.admin-login{
+    position: relative;
+    background-image: linear-gradient(to bottom , #6198bf , #6198bf63);
+    width: 100%;
+    height: 100%;
+}
+.admin-login .form-box {
+    position: absolute;
+    width: 40%;
+    left: 30%;
+    top: 100px;
+    background-color: #fff;
+    border-radius: 7px;
+}
+
+.admin-login form{
+    padding: 50px 40px;
+}
+.admin-login form input{
+    margin: 10px 0px;
+    display: block;
+    width: 100%;
+    padding: 15px 15px;
+    border:  2px solid #6198bf;
+    background-color: transparent;
+    border-radius: 25px;
+    outline: none;
+}
+.admin-login form button{
+    padding: 12px 40px;
+    background-color: transparent;
+    border: 2px solid #6198bf;
+    transition: all 0.3s ease-in-out;
+    color: #6198bf;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+}
+.admin-login form button:hover{
+    background-color: #6198bf;
+    color: #fff;
+}
+.admin-login form  .form-group{
+    margin: 25px 0px;
+}
+.admin-login form  .form-group .error-messege{
+    color: red !important;
+    font-size: 15px !important;
+    padding-left: 10px;
+    text-align: left;
+    margin-top: -10px;
+}
+@media(max-width: 991px){
+
+    .admin-login .form-box {
+        width: 50%;
+        left: 25%;
+        top: 80px;
+    }
+    
+    .admin-login form{
+        padding: 50px 30px;
+    }
+
+}
+@media (max-width:767px){
+
+    .admin-login .form-box {
+        width: 60%;
+        left: 20%;
+        top: 60px;
+    }
+    
+    .admin-login form{
+        padding: 50px 20px;
+    }
+
+}
+@media  (max-width:575px) {
+
+    .admin-login .form-box {
+        width: 80%;
+        left: 10%;
+        top: 40px;
+    }
+    
+    .admin-login form{
+        padding: 40px 20px;
+    }
+    .admin-login form button{
+        padding: 10px 34px;
+    }
+
+}
+/* ====================================================================
+|   |   |   |   |   |   |   messege-page
+===================================================================== */
+.table-container h1{
+    padding-top: 40px;
+}
+/* ====================================================================
+|   |   |   |   |   |   |   projects-page
+===================================================================== */
+.manage-project img{
+    height: 10rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 0px #b0b0b0;
+}
+.add-project-page .error-messege,
+.edit-project-page .error-messege{
+    color: red !important;
+    font-size: 15px !important;
+    padding-left: 10px;
+    text-align: left;
+}
+.add-project-page .upload-input,
+.edit-project-page .upload-input{
+    overflow: hidden;
+    margin-bottom: -50px;
+}
+.add-project-page .upload-input input,
+.edit-project-page .upload-input input{
+    visibility: hidden;
+    display: none;
+}
+.add-project-page .upload-input label ,
+.edit-project-page .upload-input label{
+    color: #84757d;
+    display: block;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 5px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+/* ===== add item session =====*/
+.add-project-success-messege,
+.edit-project-success-messege{
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    margin: 0px auto;
+    animation: hide-popup 2s ease-in-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #25b23c !important;
+}
+.add-project-failed-messege,
+.edit-project-failed-messege{
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    font-size: 15px;
+    border-radius: 4px;
+    margin: 0px auto;
+    animation: hide-popup 2s ease-in-out forwards;
+    animation-iteration-count: 1;
+    animation-delay: 3s;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #b22525 !important;
+}
+@keyframes hide-popup {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+.add-project-success-messege i,
+.edit-project-success-messege i{
+    color: #fff !important;
+}
+.add-project-failed-messege i,
+.edit-project-failed-messege i{
+    color: #fff !important;
+} 
+.delete-project-title{
+    margin-top: 100px;
+}
+/* ====================================================================
+|   |   |   |   |   |   |   projects-page
+===================================================================== */
+#project-info-page{
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    background-color: #a1b0be;
+    padding: 50px 0px;
+}
+#project-info-page .inner{
+    position: relative;
+    width: 90%;
+    margin: 0px auto;
+    background-color: #111;
+    border-radius: 5px;
+    color: #fff;
+}
+#project-info-page .inner .project-name{
+    padding-top: 10px;
+    color: #6198bf;
+    font-size: 30px;
+}
+#project-info-page .inner .project-date{
+    margin-top: 1rem;
+}
+#project-info-page .project-link{
+    padding: 12px 20px;
+    background-color: transparent;
+    border: 2px solid #6198bf;
+    transition: all 0.3s ease-in-out;
+    color: #6198bf;
+    cursor: pointer;
+    float: right;
+    border-radius: 20px;
+    outline: none;
+}
+#project-info-page .project-link:hover{
+    background-color: #6198bf;
+    text-decoration: none;
+    color: #fff;
+}
+#project-info-page .inner .site-img{
+    margin: 50px 0px;
+}
+#project-info-page .inner .site-img img{
+    max-width: 70%;
+    max-height: 700px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px 0px #b0b0b0;
+}
+.project-info{
+    padding-bottom: 50px;
+}
+.project-info .description{
+    color: #b8b8b8;
+    font-size: 14px;
+    text-align: center;
+}
+#project-info-page .footer-links{
+    padding-bottom: 30px;
+}
+#project-info-page .footer-links a{
+    color: #6198bf;
+    text-decoration: underline;
+}
+#project-info-page .footer-links a:hover{
+    color: #6198bf;
+}
+#project-info-page .footer-links i{
+    cursor: pointer ;
+    transition: all 0.3s ease-in-out;
+    font-size: 24px;
+}
+#project-info-page .footer-links i:hover{
+    color: #6198bf;
+}
+@media (max-width:767px){
+
+    #project-info-page .project-link{
+        padding: 10px 17px;
+        float: left;
+    }
+    #project-info-page .footer-links a{
+        font-size: 14px;
+    }
+}
+@media (max-width: 575px){
+
+    #project-info-page .project-link{
+        padding: 7px 12px;
+        margin-top: 5px;
+    }
+
+
+}
