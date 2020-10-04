@@ -10,6 +10,6 @@ $factory->define(Messege::class, function (Faker $faker) {
         'body'  => $faker->sentence(10)  ,
         'name'  => $faker->name()  ,
         'email' => $faker->email()  ,
-        'phone' => $faker->phoneNumber()  ,
+        // 'phone' => $faker->phoneNumber()  ,
     ];
 });

@@ -397,6 +397,7 @@ body::-webkit-scrollbar-thumb{
     padding-left: 10px;
     text-align: left;
     margin-top: -10px;
+    text-shadow: 3px 2px 10px red;
 }
 #contact .popup-messege{
     height: 40px;
