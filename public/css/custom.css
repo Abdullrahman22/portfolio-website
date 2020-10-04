@@ -99,7 +99,7 @@ body::-webkit-scrollbar-thumb{
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url("../images/img/home_bg.jpg") !important;
+    background-image: url("/images/img/home_bg.jpg") !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -196,7 +196,7 @@ body::-webkit-scrollbar-thumb{
 }
 @media  (max-width:575px) {
     #Home{
-        background-image: url("../images/img/home_bg_1.jpg") !important;
+        background-image: url("/images/img/home_bg_1.jpg") !important;
     }
     #home .my-info p:nth-of-type(1){
         font-size: 15px;
@@ -689,14 +689,14 @@ body::-webkit-scrollbar-thumb{
 /* ====================================================================
 |   |   |   |   |   |   |   projects-page
 ===================================================================== */
-#project-info-page{
+#project-info{
     position: relative;
     width: 100%;
     min-height: 100%;
     background-color: #a1b0be;
     padding: 50px 0px;
 }
-#project-info-page .inner{
+#project-info .inner{
     position: relative;
     width: 90%;
     margin: 0px auto;
@@ -704,15 +704,15 @@ body::-webkit-scrollbar-thumb{
     border-radius: 5px;
     color: #fff;
 }
-#project-info-page .inner .project-name{
+#project-info .inner .project-name{
     padding-top: 10px;
     color: #6198bf;
     font-size: 30px;
 }
-#project-info-page .inner .project-date{
+#project-info .inner .project-date{
     margin-top: 1rem;
 }
-#project-info-page .project-link{
+#project-info .project-link{
     padding: 12px 20px;
     background-color: transparent;
     border: 2px solid #6198bf;
@@ -723,15 +723,15 @@ body::-webkit-scrollbar-thumb{
     border-radius: 20px;
     outline: none;
 }
-#project-info-page .project-link:hover{
+#project-info .project-link:hover{
     background-color: #6198bf;
     text-decoration: none;
     color: #fff;
 }
-#project-info-page .inner .site-img{
+#project-info .inner .site-img{
     margin: 50px 0px;
 }
-#project-info-page .inner .site-img img{
+#project-info .inner .site-img img{
     max-width: 70%;
     max-height: 700px;
     border-radius: 5px;
@@ -745,37 +745,37 @@ body::-webkit-scrollbar-thumb{
     font-size: 14px;
     text-align: center;
 }
-#project-info-page .footer-links{
+#project-info .footer-links{
     padding-bottom: 30px;
 }
-#project-info-page .footer-links a{
+#project-info .footer-links a{
     color: #6198bf;
     text-decoration: underline;
 }
-#project-info-page .footer-links a:hover{
+#project-info .footer-links a:hover{
     color: #6198bf;
 }
-#project-info-page .footer-links i{
+#project-info .footer-links i{
     cursor: pointer ;
     transition: all 0.3s ease-in-out;
     font-size: 24px;
 }
-#project-info-page .footer-links i:hover{
+#project-info .footer-links i:hover{
     color: #6198bf;
 }
 @media (max-width:767px){
 
-    #project-info-page .project-link{
+    #project-info .project-link{
         padding: 10px 17px;
         float: left;
     }
-    #project-info-page .footer-links a{
+    #project-info .footer-links a{
         font-size: 14px;
     }
 }
 @media (max-width: 575px){
 
-    #project-info-page .project-link{
+    #project-info .project-link{
         padding: 7px 12px;
         margin-top: 5px;
     }
