@@ -14,12 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
+
+Route::get("/{any}", function(){
     return view('home');
-});
-
-
-Route::get('/project', function () {
-    return view('project');
-});
-
+}) -> where([ "any" => ".*" ]); 
