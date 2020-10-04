@@ -15,6 +15,6 @@ $factory->define(Project::class, function (Faker $faker) {
         "date"  => $faker -> sentence(2) ,
         "img"   => "https://www.imgacademy.com/sites/default/files/2009-stadium-about.jpg" ,
         "desc"  => $faker->sentence(200) ,
-        "link"  => $faker -> text(200) ,
+        "link"  => $faker -> text(100) ,
     ];
 });
