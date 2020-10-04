@@ -37635,7 +37635,7 @@ var staticRenderFns = [
             _c("div", { staticClass: "col-md-6" }, [
               _c("img", {
                 staticClass: "img-fluid",
-                attrs: { src: "assets/images/img/img_1.jpg", alt: "" }
+                attrs: { src: "/images/img/img_1.jpg", alt: "" }
               })
             ]),
             _vm._v(" "),

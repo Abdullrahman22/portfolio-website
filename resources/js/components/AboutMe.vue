@@ -7,7 +7,7 @@
                <div class="about-inner">
                     <div class="row">
                          <div class="col-md-6">
-                              <img src="assets/images/img/img_1.jpg" class="img-fluid" alt="">
+                              <img src="/images/img/img_1.jpg" class="img-fluid" alt="">
                          </div>
                          <div class="col-md-6"> 
                               <div class="info">
