@@ -248,7 +248,6 @@ body::-webkit-scrollbar-thumb{
     background-position: center;
     transition: all 0.2s ease-in-out;
 }
-
 #works .work-box .overlay{
     position: absolute;
     max-width: 100%;
@@ -260,6 +259,9 @@ body::-webkit-scrollbar-thumb{
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
     display: none;
+}
+#works .work-box:hover .overlay{
+    display: block;
 }
 #works .work-box .overlay div.custom-border{
     position: absolute;
