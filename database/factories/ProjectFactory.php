@@ -13,7 +13,7 @@ $factory->define(Project::class, function (Faker $faker) {
         "title" => $title ,
         "slug"  => $slug ,
         "date"  => $faker -> sentence(2) ,
-        "img"   => "https://www.imgacademy.com/sites/default/files/2009-stadium-about.jpg" ,
+        "img"   => "391_Heloko.png" ,
         "desc"  => $faker->sentence(200) ,
         "link"  => $faker -> text(100) ,
     ];

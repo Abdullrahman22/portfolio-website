@@ -20,4 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get("all-proejcts" , "ProjectController@index");
+Route::get("project/{slug}" , "ProjectController@show");
+
 Route::post("send-messege" , "MessegeController@store");

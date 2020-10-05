@@ -7,7 +7,7 @@
                <div class="row text-center">
                     <router-link :to=" '/project/' + project.slug" class="col-md-4 col-sm-6 col-12" v-for="project in projects" :key="project.id">
                          <div class="work-box text-center" >
-                              <div class="content-img" style="background-image: url(images/sites-img/685_Bioniqe.png) ">
+                              <div class="content-img" :style=" 'background-image: url(/images/sites-img/' + project.img + ')' ">
                                    <div class="overlay">
                                         <div class="custom-border"></div>
                                         <div class="project-info">
