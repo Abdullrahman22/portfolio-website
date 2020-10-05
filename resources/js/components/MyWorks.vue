@@ -19,6 +19,7 @@
                          </div>
                     </router-link>
                </div>
+               <button class="load-more btn btn-info" v-if="moreExist"  @click.prevent="loadMore"> Load More &nbsp <i class="fas fa-spinner"></i> </button>
         </div>
      </div>
 
@@ -27,7 +28,18 @@
      export default {
           data(){
                return{
-                    projects: {}
+                    paginationPage: 1,
+                    projects: {},
+                    projectsPageData: {},
+                    rotate: 360,
+               }
+          },
+          computed: {
+               moreExist(){
+                    if( this.projectsPageData.current_page < this.projectsPageData.last_page )
+                         return true;
+                    else
+                         return false; 
                }
           },
           mounted(){
@@ -35,14 +47,34 @@
           },
           methods:{
                getProjects(){
-                    axios.get("/api/all-proejcts")
+                    axios.get("/api/all-proejcts/?page=" + this.paginationPage)
                     .then( 
                          resquest => {  
                               // console.log(resquest.data);
-                              this.projects = resquest.data
+                              this.projectsPageData = resquest.data
+                              this.projects = resquest.data.data
                          }
                     )
                     .catch( error => console.log(error) )
+               },
+               loadMore(){
+                    /*========= Load Projects ===========*/
+                    this.paginationPage = this.paginationPage + 1 ;
+                    axios.get("/api/all-proejcts/?page=" + this.paginationPage)
+                    .then( 
+                         resquest => {  
+                              // console.log(resquest.data);
+                              this.projectsPageData = resquest.data
+                              resquest.data.data.forEach(data => {
+                                   this.projects.push(data)
+                              })
+                         }
+                    )
+                    .catch( error => console.log(error) )
+                    /*========= Add Icon Animation ===========*/
+                    var icon = document.getElementsByClassName("fa-spinner")[0];
+                    icon.style.transform =  'rotate(' + this.rotate + 'deg)';
+                    this.rotate += 360;
                }
           }
      }

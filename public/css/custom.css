@@ -292,6 +292,24 @@ body::-webkit-scrollbar-thumb{
 #works .work-box .overlay div.project-info a:hover{
     text-decoration: underline;  
 }
+#works button.load-more{
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid #6198bf;
+    transition: all 0.5s ease-in-out;
+    margin-top: 20px;
+    color: #6198bf;
+    cursor: pointer;
+    border-radius: 25px;
+    outline: none;
+}
+#works button.load-more:hover{
+    background-color: #6198bf;
+    color: #fff;
+}
+#works button.load-more i{
+    transition: transform 1s ease-in-out;
+}
 /* ====================================================================
 |   |   |   |   |   |   |   about
 ===================================================================== */
