@@ -4,7 +4,7 @@ body{
 }
 body::-webkit-scrollbar {
     background-color:#6c757d36;
-    width: 7px;
+    width: 10px;
     right: -10px
 }
 body::-webkit-scrollbar-thumb{
@@ -782,9 +782,16 @@ body::-webkit-scrollbar-thumb{
     cursor: pointer ;
     transition: all 0.3s ease-in-out;
     font-size: 24px;
+    color: #fff;
 }
 #project-info .footer-links i:hover{
     color: #6198bf;
+}
+#project-info .footer-links i.null{
+    color: rgb(87, 87, 87);
+}
+#project-info .footer-links i.null:hover{
+    color: rgb(87, 87, 87);
 }
 @media (max-width:767px){
 

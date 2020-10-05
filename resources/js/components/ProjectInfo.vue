@@ -24,9 +24,11 @@
                     </div>
                     <div class="footer-links">
                          <div class="row text-center">
-                              <div class="col-4 "> <i class="fas fa-arrow-left"></i> </div>
-                              <div class="col-4 "> <router-link to="/"> Home Page </router-link> </div>
-                              <div class="col-4 "> <i class="fas fa-arrow-right"></i>  </div>
+                              <div class="col-4" v-if="previousProject[0]" >  <router-link  :to=" '/project/' + previousProject[0].slug "> <i class="fas fa-arrow-left"></i></router-link> </div>
+                              <div class="col-4" v-else > <i class="fas fa-arrow-left null"></i> </div>
+                              <div class="col-4"><router-link to="/">  Home Page  </router-link></div>
+                              <div class="col-4" v-if="nextProject[0]" >  <router-link  :to=" '/project/' + nextProject[0].slug "> <i class="fas fa-arrow-right"></i></router-link> </div>
+                              <div class="col-4" v-else> <i class="fas fa-arrow-right null"></i> </div>
                          </div>
                     </div>
                </div>
@@ -37,11 +39,18 @@
      export default {
           data(){
                return{
-                    project: {}
+                    project: {},
+                    nextProject: {},
+                    previousProject: {},
                }
           },
           mounted(){
                this.getProject();
+          },
+          watch: {
+               $route: function() {  // watch $route if any changes
+                    this.getProject();
+               }
           },
           methods:{
                getProject(){
@@ -49,7 +58,9 @@
                     .then( 
                          resquest => {  
                               // console.log(resquest.data);
-                              this.project = resquest.data.project
+                              this.project   = resquest.data.project
+                              this.nextProject = resquest.data.nextProject
+                              this.previousProject = resquest.data.previousProject
                          }
                     )
                     .catch( error => console.log(error) )

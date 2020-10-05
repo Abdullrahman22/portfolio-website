@@ -2135,14 +2135,24 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
-      project: {}
+      project: {},
+      nextProject: {},
+      previousProject: {}
     };
   },
   mounted: function mounted() {
     this.getProject();
+  },
+  watch: {
+    $route: function $route() {
+      // watch $route if any changes
+      this.getProject();
+    }
   },
   methods: {
     getProject: function getProject() {
@@ -2151,6 +2161,8 @@ __webpack_require__.r(__webpack_exports__);
       axios.get("/api/project/" + this.$route.params.slug).then(function (resquest) {
         // console.log(resquest.data);
         _this.project = resquest.data.project;
+        _this.nextProject = resquest.data.nextProject;
+        _this.previousProject = resquest.data.previousProject;
       })["catch"](function (error) {
         return console.log(error);
       });
@@ -42262,44 +42274,59 @@ var render = function() {
         _vm._v(" "),
         _c("div", { staticClass: "footer-links" }, [
           _c("div", { staticClass: "row text-center" }, [
-            _vm._m(0),
+            _vm.previousProject[0]
+              ? _c(
+                  "div",
+                  { staticClass: "col-4" },
+                  [
+                    _c(
+                      "router-link",
+                      {
+                        attrs: { to: "/project/" + _vm.previousProject[0].slug }
+                      },
+                      [_c("i", { staticClass: "fas fa-arrow-left" })]
+                    )
+                  ],
+                  1
+                )
+              : _c("div", { staticClass: "col-4" }, [
+                  _c("i", { staticClass: "fas fa-arrow-left null" })
+                ]),
             _vm._v(" "),
             _c(
               "div",
-              { staticClass: "col-4 " },
+              { staticClass: "col-4" },
               [
                 _c("router-link", { attrs: { to: "/" } }, [
-                  _vm._v(" Home Page ")
+                  _vm._v("  Home Page  ")
                 ])
               ],
               1
             ),
             _vm._v(" "),
-            _vm._m(1)
+            _vm.nextProject[0]
+              ? _c(
+                  "div",
+                  { staticClass: "col-4" },
+                  [
+                    _c(
+                      "router-link",
+                      { attrs: { to: "/project/" + _vm.nextProject[0].slug } },
+                      [_c("i", { staticClass: "fas fa-arrow-right" })]
+                    )
+                  ],
+                  1
+                )
+              : _c("div", { staticClass: "col-4" }, [
+                  _c("i", { staticClass: "fas fa-arrow-right null" })
+                ])
           ])
         ])
       ])
     ])
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4 " }, [
-      _c("i", { staticClass: "fas fa-arrow-left" })
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4 " }, [
-      _c("i", { staticClass: "fas fa-arrow-right" })
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 

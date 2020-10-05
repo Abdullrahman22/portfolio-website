@@ -27,10 +27,16 @@ class ProjectController extends Controller
      */
     public function show($slug)
     {
-        $project = Project::where('slug', $slug ) -> first(); 
-        return response() -> json([
-            "project" => $project
-        ]);
+        $project = Project::where('slug', $slug ) -> first();
+        $projectId = $project->id;
+        /*========== Next and Previous Button ==========*/
+        $nextProject     = Project::where('id', '=', $projectId + 1)->get();
+        $previousProject = Project::where('id', '=', $projectId - 1)->get();
+        /*========== Return Json ==========*/
+        return response() -> json(
+            compact( "project" , "nextProject" , "previousProject" )
+        );
+
     }
 
 }
