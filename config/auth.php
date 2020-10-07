@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'admin',
-        'passwords' => 'admins',
+        'guard' => 'admin', // set middleware("auth") ==> defualt for admin
+        'passwords' => 'admins', // admins DB table
     ],
 
     /*
@@ -41,9 +41,9 @@ return [
         //     'provider' => 'users',
         // ],
 
-        'admin' => [
-            'driver' => 'session',
-            'provider' => 'admins',
+        'admin' => [    // middleware("auth") Or middleware("auth:admin")
+            'driver' => 'session',   // depend on session browser
+            'provider' => 'admins',  // admins DB table
         ],
 
         // 'api' => [
@@ -76,9 +76,9 @@ return [
         //     'model' => App\User::class,
         // ],
 
-        'admins' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Admin::class,
+        'admins' => [    // admins DB table
+            'driver' => 'eloquent',  // use Laravel eloquent
+            'model' => App\Models\Admin::class,  // Admin Model
         ],
 
         // 'users' => [
