@@ -14,7 +14,12 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+/*============= Login ============*/
+Route::get('auth/admin/login', 'Auth\AuthController@index');
+Route::post('auth/admin/login', 'Auth\AuthController@login');
 
+
+/*============= Web ============*/
 Route::get("/{any}", function(){
     return view('home');
 }) -> where([ "any" => ".*" ]); 
