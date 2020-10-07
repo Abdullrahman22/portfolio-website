@@ -554,6 +554,7 @@ body::-webkit-scrollbar-thumb{
 .admin-login form small{
     text-align: left;
     margin-top: -13px;
+    margin-left: 10px;
 }
 .admin-login form button{
     padding: 12px 40px;
