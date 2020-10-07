@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Auth;
 */
 
 /*============= Login ============*/
-Route::get('auth/admin/login', 'Auth\AuthController@index')-> name('adminLogin');
+Route::get('auth/admin/login', 'Auth\AuthController@index')-> middleware("guest")-> name('adminLogin');
 Route::post('auth/admin/login', 'Auth\AuthController@login')-> name('adminLogin');
 
-/*============= Login ============*/
+/*============= Admin ============*/
 // Route::get('admin', 'Admin\AdminController@index');
 Route::get('admin', 'Admin\AdminController@index')->middleware("auth");
 
