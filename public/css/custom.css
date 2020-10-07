@@ -551,6 +551,10 @@ body::-webkit-scrollbar-thumb{
     border-radius: 25px;
     outline: none;
 }
+.admin-login form small{
+    text-align: left;
+    margin-top: -13px;
+}
 .admin-login form button{
     padding: 12px 40px;
     background-color: transparent;

@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 /*============= Login ============*/
 Route::get('auth/admin/login', 'Auth\AuthController@index');
-Route::post('auth/admin/login', 'Auth\AuthController@login');
+Route::post('auth/admin/login', 'Auth\AuthController@login') -> name('adminLogin');
 
 
 /*============= Web ============*/
