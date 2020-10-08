@@ -19,9 +19,12 @@ Route::get('auth/admin/login', 'Auth\AuthController@index')-> middleware("guest"
 Route::post('auth/admin/login', 'Auth\AuthController@login')-> name('adminLogin');
 
 /*============= Admin ============*/
-// Route::get('admin', 'Admin\AdminController@index');
-Route::get('admin', 'Admin\AdminController@index')->middleware("auth");
-
+Route::group([ 'prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware' => 'auth' ] , function(){
+    // Admin Home Page 
+    Route::get('/', 'AdminController@index');
+    // Admin Home Page 
+    Route::get('/messeges', 'MessegeController@index');
+});
 
 /*============= Web ============*/
 Route::get("/{any}", function(){
