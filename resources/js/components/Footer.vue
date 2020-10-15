@@ -12,7 +12,7 @@
                     <span> <a href="#"> <i class="fab fa-twitter-square"></i> </a>  </span>
                 </div>
                 <div class="copyright">
-                    © 2019 Zuman. All Rights Reserved. <br>
+                    © {{ year }} Zuman. All Rights Reserved. <br>
                     Created by AbdullRahman Ismael
                 </div>
             </div>
@@ -20,3 +20,12 @@
     </div>
     
 </template>
+<script>
+    export default {
+        data(){
+            return{
+                year: new Date().getFullYear()
+            }
+        }
+    }
+</script>
