@@ -21,12 +21,12 @@ Route::post('auth/admin/login', 'Auth\AuthController@login')-> name('adminLogin'
 /*============= Admin ============*/
 Route::group([ 'prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware' => 'auth' ] , function(){
     // Admin Home Page 
-    Route::get('/', 'AdminController@index');
-    // Admin Home Page 
+    Route::get('/', 'AdminController@index') -> middleware("RedirectToMessegePage");
+    // Admin Messeges Page 
     Route::get('/messeges', 'MessegeController@index');
 });
 
 /*============= Web ============*/
 Route::get("/{any}", function(){
     return view('home');
-}) -> where([ "any" => ".*" ]); 
+}) -> where([ "any" => ".*" ]);     
