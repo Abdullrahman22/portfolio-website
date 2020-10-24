@@ -628,37 +628,38 @@ body::-webkit-scrollbar-thumb{
 .table-container h1{
     padding-top: 40px;
 }
+.table-responsive{
+    border-radius: 7px;
+    border: 1px solid #352c2c40;
+    margin-bottom: 60px;
+}
 /* ====================================================================
-|   |   |   |   |   |   |   projects-page
+|   |   |   |   |   |   |   projects-admin-page
 ===================================================================== */
+.project-page input ,
+.project-page textarea{
+    margin-bottom: 15px;
+    border-radius: 20px;
+}
 .manage-project img{
     height: 10rem;
     border-radius: 5px;
     box-shadow: 0px 0px 7px 0px #b0b0b0;
 }
-.add-project-page .error-messege,
-.edit-project-page .error-messege{
-    color: red !important;
-    font-size: 15px !important;
-    padding-left: 10px;
-    text-align: left;
-}
-.add-project-page .upload-input,
-.edit-project-page .upload-input{
+.upload-input{
     overflow: hidden;
-    margin-bottom: -50px;
+    margin-bottom: 10px;
+    position: relative;
 }
-.add-project-page .upload-input input,
-.edit-project-page .upload-input input{
+.upload-input input{
     visibility: hidden;
     display: none;
 }
-.add-project-page .upload-input label ,
-.edit-project-page .upload-input label{
+.upload-input label{
     color: #84757d;
     display: block;
     border: 1px solid rgb(192, 192, 192);
-    border-radius: 5px;
+    border-radius: 20px;
     padding-top: 7px;
     padding-bottom: 7px;
     padding-left: 10px;

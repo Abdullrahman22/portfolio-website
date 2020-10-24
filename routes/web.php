@@ -24,6 +24,8 @@ Route::group([ 'prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware' => 'a
     Route::get('/', 'AdminController@index') -> middleware("RedirectToMessegePage");
     // Admin Messeges Page 
     Route::get('/messeges', 'MessegeController@index');
+    // Admin Projects Page 
+    Route::get('/projects', 'ProjectController@index');
 });
 
 /*============= Web ============*/
