@@ -94,6 +94,10 @@ body::-webkit-scrollbar-thumb{
 .navbar.navbar-expand-lg.sticky-top.black-bg a{
     color: #fff;
 }
+.admin-navbar{
+    transition: none;
+    position: relative;
+}
 /* ====================================================================
 |   |   |   |   |   |   |   Home
 ===================================================================== */

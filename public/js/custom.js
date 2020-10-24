@@ -29,7 +29,7 @@ $(function () {
                             sections link
     ====================================================*/
 
-    $(".navbar .nav-item .nav-link").click(function (e) { 
+    $(".navbar.sticky-top .nav-item .nav-link").click(function (e) { 
         var link = "#" + $(this).attr("href"); 
         e.preventDefault();
         $('html, body').animate({
