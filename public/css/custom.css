@@ -415,7 +415,7 @@ body::-webkit-scrollbar-thumb{
     background-color: #6198bf;
     color: #fff;
 }
-#contact form .error-messege{
+form .error-messege{
     color: red !important;
     font-size: 15px !important;
     padding-left: 10px;
@@ -642,10 +642,15 @@ body::-webkit-scrollbar-thumb{
 ===================================================================== */
 .project-page input ,
 .project-page textarea{
-    margin-bottom: 15px;
     border-radius: 20px;
 }
-.manage-project img{
+.project-page .form-group{
+    margin-bottom: 7px;
+}
+.project-page textarea{
+    margin-top: -10px;  
+}
+.project-page img{
     height: 10rem;
     border-radius: 5px;
     box-shadow: 0px 0px 7px 0px #b0b0b0;

@@ -53,6 +53,9 @@
         <!-- Custom File -->
         <script src="{{ asset('js/custom.js')}}"></script>
 
+        <!-- Ajax File -->
+        <script src="{{ asset('js/ajax.js')}}"></script>
+
     </body>
 
 

@@ -5,81 +5,85 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
+use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $projects = Project::get();
         return view('admin.projects' , compact('projects') );
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        // Request validation  
+        $validator = Validator::make(  $request->all() ,
+        [
+            "title" => " required | min:4 | max:55 " ,
+            "date"  => " required | min:4 | max:55 " ,
+            "img"   => " required | mimes:jpeg,jpg,png " ,
+            "link"  => " required | min:28 | max:180 " ,
+            "desc"  => " required | min:28 | max:4000 " ,
+        ],
+        [
+            'desc.required' => 'description field is required' 
+        ]);
+        
+        // Check Validator Fail
+        if( $validator -> fails()) { 
+            
+            return response() -> json([
+                "status" => "error",
+                "msg"    => "validation error",
+                "errors" => $validator->errors()  // return errors validator in array 
+            ]);
+            
+        }else{
+            
+
+            // Save Project In DB
+            $projectRequests = $request->input();  // get all requests in $projectData var
+            try{
+                $project = new Project;
+                $project->title = $projectRequests['title'];
+                $project->slug   =  str_replace( " " , "-" , $project->title );
+                $project->date  = $projectRequests['date'];
+                // $project->img   = $projectRequests['img'];
+                $project->link  = $projectRequests['link'];
+                $project->desc  = $projectRequests['desc'];
+                $project->save();
+                
+                return response() -> json([
+                    "status" => "success",
+                    "msg"    => "inserted into DB",
+                ]);
+
+            }catch( Exception $e ){
+                return response() -> json([
+                    "status" => "error",
+                    "msg"    => "insert operation failed",
+                ]);
+            }
+            
+        }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //

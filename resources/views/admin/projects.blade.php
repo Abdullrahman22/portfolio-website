@@ -43,23 +43,40 @@
                               </button>
                          </div>
                          <div class="modal-body">
-                              <form>
+                              <form enctype="multipart/form-data">
                                    @csrf
-                                   <input type="text" name="title" id="title" class="form-control" placeholder="Type Project Title...">
-                                   <input type="text" name="date" id="date" class="form-control" placeholder="Type Project Date...">
-                                   <input type="text" name="link" id="link" class="form-control" placeholder="Type Project Link...">
+                                   <!--Project Title-->
+                                   <div class="form-group">
+                                        <input type="text" name="title" id="title" class="form-control" placeholder="Type Project Title..." value="">
+                                        <small class="text-danger error-messege title"></small> 
+                                   </div>
+                                   <!--Project Date-->
+                                   <div class="form-group">
+                                        <input type="text" name="date" id="date" class="form-control" placeholder="Type Project Date..." value="">
+                                        <small class="text-danger error-messege date"></small> 
+                                   </div>
+                                   <!--Project Link-->
+                                   <div class="form-group">
+                                        <input type="text" name="link" id="link" class="form-control" placeholder="Type Project Link..." value="">
+                                        <small class="text-danger error-messege link"></small> 
+                                   </div>
                                    <!--Upload Image Field-->
                                    <div class="upload-input">
                                         <label for="file" id="file-label">  <i class="fas fa-cloud-upload-alt"></i> &nbsp; Choose image...  </label>
-                                        <input type="file" class="file form-control" id="file" name="img"   /> 
+                                        <input type="file" class="file form-control" id="file" name="img"  /> 
+                                        <small class="text-danger error-messege img"></small> 
                                    </div>
-                                   <textarea name="desc" id="desc" rows="7" class="form-control" placeholder="Type Project Description..."></textarea>
+                                   <!--Project Description-->
+                                   <div class="form-group">
+                                        <textarea name="desc" id="desc" rows="7" class="form-control" placeholder="Type Project Description..."></textarea>
+                                        <small class="text-danger error-messege desc"></small> 
+                                   </div>
                               </form>
                          </div>
                          <br>
                          <div class="modal-footer">
                               <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                              <button type="button" class="btn btn-primary">Save</button>
+                              <button type="button" class="btn btn-primary save-project">Save</button>
                          </div>
                     </div>
                </div>
@@ -69,7 +86,7 @@
           <div class="table-container manage-project">
 
                <!------- Create project button ---------->
-               <button class="btn btn-primary float-left" type="button" data-toggle="modal" data-target="#CreateProjectModal" style="margin-bottom:20px">
+               <button class="btn btn-primary float-left add-new-project" type="button" data-toggle="modal" data-target="#CreateProjectModal" style="margin-bottom:20px">
                     <i class="fas fa-plus"></i> Add New Project 
                </button>
 
