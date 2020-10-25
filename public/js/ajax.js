@@ -22,8 +22,11 @@ $(document).ready(function() {
                               $("small.text-danger." + key ).text(val[0]);
                          });
                     }
-                    if( response.status == 'error' && response.msg == 'insert operation failed'  ){
+                    else if( response.status == 'error' && response.msg == 'insert operation failed'  ){
                          alert("Error at save, please try later.... ");  
+                    }
+                    else if( response.status == 'success' ){
+                         window.location.href = "/admin/projects";
                     }
                },
                error: function(response){

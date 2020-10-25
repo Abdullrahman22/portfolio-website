@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Project;
 use Illuminate\Support\Facades\Validator;
-
+use Illuminate\Support\Facades\Session;
 class ProjectController extends Controller
 {
     public function index()
@@ -23,7 +23,7 @@ class ProjectController extends Controller
             "title" => " required | min:4 | max:55 " ,
             "date"  => " required | min:4 | max:55 " ,
             "img"   => " required | mimes:jpeg,jpg,png " ,
-            "link"  => " required | min:28 | max:180 " ,
+            "link"  => " required | url | max:180 " ,
             "desc"  => " required | min:28 | max:4000 " ,
         ],
         [
@@ -41,23 +41,32 @@ class ProjectController extends Controller
             
         }else{
             
+            // Upload Image 
+            $file_extention = $request ->img ->getClientOriginalExtension();
+            $file_name = time() . "." . $file_extention;
+            $path = "images/sites-img" ;
+            $request ->img -> move( $path , $file_name );
+
 
             // Save Project In DB
             $projectRequests = $request->input();  // get all requests in $projectData var
             try{
+
                 $project = new Project;
                 $project->title = $projectRequests['title'];
                 $project->slug   =  str_replace( " " , "-" , $project->title );
                 $project->date  = $projectRequests['date'];
-                // $project->img   = $projectRequests['img'];
+                $project->img   = $file_name;
                 $project->link  = $projectRequests['link'];
                 $project->desc  = $projectRequests['desc'];
                 $project->save();
                 
+
                 return response() -> json([
                     "status" => "success",
-                    "msg"    => "inserted into DB",
+                    "msg"    => "project created successfully",
                 ]);
+
 
             }catch( Exception $e ){
                 return response() -> json([
@@ -67,6 +76,8 @@ class ProjectController extends Controller
             }
             
         }
+        // $request->session()->flash('success', 'Project Created successfully!');
+
     }
 
     public function show($id)
