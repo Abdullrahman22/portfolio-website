@@ -80,19 +80,88 @@ class ProjectController extends Controller
 
     }
 
-    public function show($id)
-    {
-        //
+    public function edit( $id ){
+        $project = Project::find($id);
+        return response() -> json(compact("project"));
     }
 
-    public function edit($id)
+    public function update( Request $request , $id)
     {
-        //
-    }
+        
+        // Request validation  
+        $validator = Validator::make(  $request->all() ,
+        [
+            "title" => " required | min:4 | max:55 " ,
+            "date"  => " required | min:4 | max:55 " ,
+            "change_img"   => " mimes:jpeg,jpg,png " ,
+            "link"  => " required | url | max:180 " ,
+            "desc"  => " required | min:28 | max:4000 " ,
+        ],
+        [
+            'desc.required' => 'description field is required' 
+        ]);
+        
+        // Check Validator Fails
+        if( $validator -> fails()) { 
+            
+            return response() -> json([
+                "status" => "error",
+                "msg"    => "validation error",
+                "errors" => $validator->errors()  // return errors validator in array 
+            ]);
+            
+        }else{
+            
+            // check if project exist
+            $project = Project::find($id);
+            if( !$project ){
+                return response() -> json([
+                    'status' => "error",
+                    'msg'    => "project not found",
+                ]);
+            }
 
-    public function update(Request $request, $id)
-    {
-        //
+            // check if new img uploaded
+            if( $request->hasFile('change_img') ){
+                // create new file_name & Upload Image 
+                $file_extention = $request ->change_img ->getClientOriginalExtension();
+                $file_name = time() . "." . $file_extention;
+                $path = "images/sites-img" ;
+                $request ->change_img -> move( $path , $file_name );
+            }else{
+                // get file_name from DB 
+                $file_name = $project->img;
+            }
+
+            // slug var 
+            $title = $request -> title;
+            $slug = str_replace(" " , "-" , $title);
+
+
+            // Update DB
+            try{
+
+                $project -> update([  
+                    'title' => $request ->title ,  
+                    'slug'  => $slug,  
+                    'date'  => $request ->date, 
+                    'img'   => $file_name, 
+                    'desc'  => $request ->desc , 
+                    'link'  => $request ->link , 
+                ]);
+                // response Status Updated
+                return response() -> json([
+                    "status" => "success"
+                ]);
+
+            }catch( Exception $e ){
+                return response() -> json([
+                    "status" => "error",
+                    "msg"    => "updated operation failed",
+                ]);
+            }
+
+        }
     }
 
     public function destroy($id)

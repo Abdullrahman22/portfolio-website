@@ -25,7 +25,11 @@ Route::group([ 'prefix' => 'admin' , 'namespace' => 'Admin' , 'middleware' => 'a
     // Admin Messeges Page 
     Route::get('/messeges', 'MessegeController@index');
     // Admin Projects Page 
-    Route::resource('/projects', 'ProjectController');
+    Route::get('/projects', 'ProjectController@index');
+    Route::post('/projects/store', 'ProjectController@store');
+    Route::get('/projects/edit/{id}', 'ProjectController@edit');
+    Route::post('/projects/update/{id}', 'ProjectController@update');
+    Route::post('/projects/delete/{id}', 'ProjectController@destroy');
 });
 
 /*============= Web ============*/

@@ -423,6 +423,9 @@ form .error-messege{
     margin-top: -10px;
     text-shadow: 1px 1px 18px red;
 }
+.form-group {
+    margin-bottom: 5px;
+}
 #contact .popup-messege{
     height: 40px;
     width: 100% !important;

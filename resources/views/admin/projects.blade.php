@@ -3,6 +3,8 @@
 @section('content')
 
 
+
+
      <!------------ Navbar -------------->
      <nav class="navbar navbar-expand-lg admin-navbar navbar-light bg-light">
           <div class="container">
@@ -24,6 +26,9 @@
           </div>
      </nav>
 
+
+
+
      <!---------- Create Project Model ------------->
      <div class="modal fade" id="CreateProjectModal" tabindex="-1" role="dialog" aria-labelledby="CreateProjectModalLabel" aria-hidden="true">
           <div class="modal-dialog" role="document">
@@ -39,16 +44,19 @@
                               @csrf
                               <!--Project Title-->
                               <div class="form-group">
+                                   <label for="title"> Title: </label>
                                    <input type="text" name="title" id="title" class="form-control" placeholder="Type Project Title..." value="">
                                    <small class="text-danger error-messege title"></small> 
                               </div>
                               <!--Project Date-->
                               <div class="form-group">
+                                   <label for="title"> Date: </label>
                                    <input type="text" name="date" id="date" class="form-control" placeholder="Type Project Date..." value="">
                                    <small class="text-danger error-messege date"></small> 
                               </div>
                               <!--Project Link-->
                               <div class="form-group">
+                                   <label for="title"> Link: </label>
                                    <input type="text" name="link" id="link" class="form-control" placeholder="Type Project Link..." value="">
                                    <small class="text-danger error-messege link"></small> 
                               </div>
@@ -60,6 +68,7 @@
                               </div>
                               <!--Project Description-->
                               <div class="form-group">
+                                   <label for="title"> Description: </label>
                                    <textarea name="desc" id="desc" rows="7" class="form-control" placeholder="Type Project Description..."></textarea>
                                    <small class="text-danger error-messege desc"></small> 
                               </div>
@@ -73,6 +82,66 @@
                </div>
           </div>
      </div>
+
+
+
+
+     <!---------- Edit Project Model ------------->
+     <div class="modal fade" id="EditProjectModal" tabindex="-1" role="dialog" aria-labelledby="EditProjectModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                    <div class="modal-header">
+                         <h5 class="modal-title" id="EditProjectModalLabel"> Edit Project </h5>
+                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                         </button>
+                    </div>
+                    <div class="modal-body">
+                         <form enctype="multipart/form-data">
+                              @csrf
+                              <!-- Project ID -->
+                              <input type="hidden" class="project_id" value="">
+                              <!--Project Title-->
+                              <div class="form-group">
+                                   <label for="title"> Title: </label>
+                                   <input type="text" name="title" id="title" class="form-control" placeholder="Type Project Title..." value="">
+                                   <small class="text-danger error-messege title"></small> 
+                              </div>
+                              <!--Project Date-->
+                              <div class="form-group">
+                                   <label for="title"> Date: </label>
+                                   <input type="text" name="date" id="date" class="form-control" placeholder="Type Project Date..." value="">
+                                   <small class="text-danger error-messege date"></small> 
+                              </div>
+                              <!--Project Link-->
+                              <div class="form-group">
+                                   <label for="title"> Link: </label>
+                                   <input type="text" name="link" id="link" class="form-control" placeholder="Type Project Link..." value="">
+                                   <small class="text-danger error-messege link"></small> 
+                              </div>
+                              <!--Upload Image Field-->
+                              <div class="upload-input">
+                                   <label for="change_img" id="file-label">  <i class="fas fa-cloud-upload-alt"></i> &nbsp; Choose image...  </label>
+                                   <input type="file" class="file form-control" id="change_img" name="change_img"  /> 
+                                   <small class="text-danger error-messege img"></small> 
+                              </div>
+                              <!--Project Description-->
+                              <div class="form-group">
+                                   <label for="title"> Description: </label>
+                                   <textarea name="desc" id="desc" rows="7" class="form-control" placeholder="Type Project Description..."></textarea>
+                                   <small class="text-danger error-messege desc"></small> 
+                              </div>
+                         </form>
+                    </div>
+                    <br>
+                    <div class="modal-footer">
+                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                         <button type="button" class="btn btn-primary update-project">update</button>
+                    </div>
+               </div>
+          </div>
+     </div>
+
 
 
 
@@ -115,12 +184,8 @@
                                         <th scope="row"> {{ substr( $project->desc , 0 , 50 ) . "..."}} </th>
                                         <th scope="row"> {{ substr( $project->link , 0 , 50 ) . "..."}} </th>
                                         <th scope="row" style="display:flex">
-                                             <button class="btn btn-success" type="button" data-toggle="modal" data-target="#EditProjectModal">
-                                                  <i class="fas fa-edit"></i> 
-                                             </button>
-                                             &nbsp;
-                                             <button class="btn btn-primary">
-                                                  <i class="far fa-eye"></i> 
+                                             <button class="btn btn-info edit-btn" project_id="{{ $project->id }}" type="button" data-toggle="modal" data-target="#EditProjectModal">
+                                                  <i class="fas fa-wrench"></i>
                                              </button>
                                              &nbsp;
                                              <button class="btn btn-danger checked-btn">
