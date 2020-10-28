@@ -188,7 +188,7 @@
                                                   <i class="fas fa-wrench"></i>
                                              </button>
                                              &nbsp;
-                                             <button class="btn btn-danger checked-btn">
+                                             <button class="btn btn-danger checked-btn delete-btn" project_id="{{ $project->id }}">
                                                   <i class="far fa-trash-alt"></i> 
                                              </button>
                                         </th>

@@ -34,6 +34,7 @@ $(document).ready(function() {
                }
           });
      })
+
      /*====================================================
                               Edit Project 
      ====================================================*/
@@ -61,6 +62,7 @@ $(document).ready(function() {
                }
           });
      });
+
      /*====================================================
                               Update Project 
      ====================================================*/
@@ -98,6 +100,36 @@ $(document).ready(function() {
                }
           });
      });
-     
+
+     /*====================================================
+                              Delete Project 
+     ====================================================*/
+     $(".project-page button.delete-btn").click( function (e){
+          e.preventDefault();
+          var _token = $("form [name='_token']").val();
+          var project_id = $(this).attr("project_id");
+          $.ajax({
+               type: "POST",  
+               url: "/admin/projects/delete/" + parseInt ( project_id ) ,  // project_id in <input type="hidden"/>
+               data: {
+                    _token: _token,
+                    id    : project_id,
+               },  
+               success: function ( response ) {
+                    // console.log(response);
+                    if( response.status == 'error' && response.msg == 'project not found'  ){
+                         window.location.href = "/admin/projects";
+                    }
+                    else if( response.status == 'deleted' ){
+                         alert("Project Deleted!");
+                         window.location.href = "/admin/projects";
+                    }
+               },
+               error: function(response){
+                   alert("Error");   // failed to with url
+               }
+          });
+     });
+
 
 });
